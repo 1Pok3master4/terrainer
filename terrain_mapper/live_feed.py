@@ -25,7 +25,6 @@ class LiveMapVisualizer(Node):
         self.waypoints_dt = self.create_subscription(String, '/waypoints', self.waypoints_callback, 10)
         self.pose_dt = self.create_subscription(Pose, '/simple_drone/gt_pose', self.pose_callback, 10)
 
-        # Matplotlib figure will be set up in main thread
         self.fig = None
         self.ax = None
         self.map_sc = None
