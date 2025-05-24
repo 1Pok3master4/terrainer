@@ -78,26 +78,25 @@ class AutonomousSurvey(Node):
             error_y = target_y - self.y
             vel_x = kp*error_x
             vel_y = kp*error_y
-        
-        
-        if abs(error)>0.1:
-            vel.linear.x = 0.0
-            vel.linear.y = 0.0
-            vel.linear.z = 0.6*error
-        else:
-            vel.linear.z = 0.0
-            self.state = "data_collection"
-            if "Waypoint " f" {current_waypoint}" in self.targets:
-                if abs(error_x)>0.3 or abs(error_y)>0.3:
-                    vel.linear.x = vel_x
-                    vel.linear.y = vel_y
-                else:
-                    vel.linear.x = vel.linear.y = 0.0
-                    self.current_waypoint += 1
+        if self.state != "returning":
+            if abs(error)>0.1:
+                vel.linear.x = 0.0
+                vel.linear.y = 0.0
+                vel.linear.z = 0.6*error
+            else:
+                vel.linear.z = 0.0
+                self.state = "data_collection"
+                if "Waypoint " f" {current_waypoint}" in self.targets:
+                    if abs(error_x)>0.3 or abs(error_y)>0.3:
+                        vel.linear.x = vel_x
+                        vel.linear.y = vel_y
+                    else:
+                        vel.linear.x = vel.linear.y = 0.0
+                        self.current_waypoint += 1
 
-            if "Waypoint " f" {current_waypoint}" not in self.targets:
-                vel.linear.x = vel.linear.y = vel.linear.z = 0.0
-                self.state = "returning"
+                if "Waypoint " f" {current_waypoint}" not in self.targets:
+                    vel.linear.x = vel.linear.y = vel.linear.z = 0.0
+                    self.state = "returning"
         if self.state == "returning":
             target_x = 0.0
             target_y = 0.0
