@@ -25,7 +25,6 @@ class LiveMapVisualizer(Node):
         self.waypoints_dt = self.create_subscription(String, '/waypoints', self.waypoints_callback, 10)
         self.pose_dt = self.create_subscription(Pose, '/simple_drone/gt_pose', self.pose_callback, 10)
 
-        # Matplotlib figure will be set up in main thread
         self.fig = None
         self.ax = None
         self.map_sc = None
@@ -98,7 +97,6 @@ class LiveMapVisualizer(Node):
             else:
                 self.drone_sc.set_offsets(np.empty((0, 2)))
 
-            # Manual autoscale for all points
             all_x = []
             all_y = []
             if self.map_points:
@@ -122,7 +120,6 @@ def main(args=None):
     rclpy.init(args=args)
     node = LiveMapVisualizer()
 
-    # Set up matplotlib plot in MAIN thread
     fig, ax = plt.subplots()
     map_sc = ax.scatter([], [], c='green', s=1, label='Map Points')
     wp_sc = ax.scatter([], [], c='blue', label='Waypoints')
@@ -134,16 +131,14 @@ def main(args=None):
 
     node.setup_plot(fig, ax, map_sc, wp_sc, drone_sc)
 
-    # Spin ROS in a background thread
     ros_thread = threading.Thread(target=rclpy.spin, args=(node,), daemon=True)
     ros_thread.start()
 
-    # Animation and plt.show() IN MAIN THREAD
     ani = animation.FuncAnimation(
         fig,
         node.update_plot,
         interval=1000,
-        cache_frame_data=False   # suppresses the matplotlib warning
+        cache_frame_data=False 
     )
     plt.show()
 
