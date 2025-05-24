@@ -25,4 +25,4 @@ All scripts reference absolute file paths. Make sure to change the file paths be
 - In the `maps` directory, `maps.py` allows for plotting after the mapping is done.
 
 **Requirement:**  
-`live_feed.py` requires NumPy 1.X in order to run.
+- `live_feed.py` requires NumPy 1.X in order to run.
