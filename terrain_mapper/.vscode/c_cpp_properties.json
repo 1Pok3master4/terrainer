@@ -1,0 +1,41 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/mocha1410/ros2_ws/install/sjtu_drone_description/include/**",
+        "/home/mocha1410/ros2_ws/install/image_geometry/include/**",
+        "/home/mocha1410/ros2_ws/install/gazebo_plugins/include/**",
+        "/home/mocha1410/ros2_ws/install/custom_car_plugin/include/**",
+        "/home/mocha1410/ros2_ws/install/gazebo_ros/include/**",
+        "/home/mocha1410/ros2_ws/install/gazebo_msgs/include/**",
+        "/home/mocha1410/ros2_ws/install/cv_bridge/include/**",
+        "/home/mocha1410/turtlebot3_ws/install/turtlebot3_fake_node/include/**",
+        "/home/mocha1410/turtlebot3_ws/install/turtlebot3_msgs/include/**",
+        "/home/mocha1410/turtlebot3_ws/install/turtlebot3_gazebo/include/**",
+        "/home/mocha1410/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/include/**",
+        "/home/mocha1410/turtlebot3_ws/install/dynamixel_sdk/include/**",
+        "/home/mocha1410/ros2_ws/src/ROS2-Drone-Basic-Course-for-Beginners/install/sjtu_drone_description/include/**",
+        "/home/mocha1410/ros2_ws/src/install/image_geometry/include/**",
+        "/home/mocha1410/ros2_ws/src/install/cv_bridge/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/mocha1410/ros2_ws/src/ROS2-Drone-Basic-Course-for-Beginners/sjtu_drone/sjtu_drone_description/include/**",
+        "/home/mocha1410/ros2_ws/src/custom_car_plugin/include/**",
+        "/home/mocha1410/ros2_ws/src/gazebo_ros_pkgs/gazebo_plugins/include/**",
+        "/home/mocha1410/ros2_ws/src/gazebo_ros_pkgs/gazebo_ros/include/**",
+        "/home/mocha1410/ros2_ws/src/vision_opencv/cv_bridge/include/**",
+        "/home/mocha1410/ros2_ws/src/vision_opencv/image_geometry/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
